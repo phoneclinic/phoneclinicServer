@@ -7,6 +7,7 @@ const cors = require('cors');
 const bcrypt = require('bcrypt');
 const salt = bcrypt.genSaltSync(10);
 const request = require('request');
+const path = require('path');
 
 
 app.use(bodyParser.json())
