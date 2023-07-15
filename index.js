@@ -2,18 +2,17 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const mongoose = require("mongoose");
-const uri = "mongodb+srv://phoneclinic:phoneclinic123@atlascluster.2kkpwye.mongodb.net/?retryWrites=true&w=majority";
 const cors = require('cors');
 const bcrypt = require('bcrypt');
 const salt = bcrypt.genSaltSync(10);
 const request = require('request');
 const path = require('path');
-
+require('dotenv').config();
 
 app.use(bodyParser.json())
 app.use(cors())
 
-mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
 .then(res => console.log('database connected'))
 .catch(err => console.log(err))
 
